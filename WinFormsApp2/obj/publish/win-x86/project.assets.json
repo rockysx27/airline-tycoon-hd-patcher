@@ -193,11 +193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Forest\\source\\repos\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
+      "projectUniqueName": "C:\\Users\\Forest\\source\\repos\\WinFormsApp2\\at.hd-pather\\WinFormsApp2\\WinFormsApp2.csproj",
       "projectName": "WinFormsApp2",
-      "projectPath": "C:\\Users\\Forest\\source\\repos\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
+      "projectPath": "C:\\Users\\Forest\\source\\repos\\WinFormsApp2\\at.hd-pather\\WinFormsApp2\\WinFormsApp2.csproj",
       "packagesPath": "C:\\Users\\Forest\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Forest\\source\\repos\\WinFormsApp2\\WinFormsApp2\\obj\\publish\\win-x86\\",
+      "outputPath": "C:\\Users\\Forest\\source\\repos\\WinFormsApp2\\at.hd-pather\\WinFormsApp2\\obj\\publish\\win-x86\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

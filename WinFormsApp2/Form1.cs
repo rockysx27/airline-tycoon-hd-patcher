@@ -152,79 +152,95 @@ namespace WinFormsApp2
                 btnInstall.Enabled = true;
             }
         }
+        private record FileDownload(string FileName, string Url);
+
+        private FileDownload[] GetVersionFiles(string version)
+        {
+#pragma warning disable CS8603 // Possible null reference return.
+            return version switch
+            {
+                "v1.2H3" => new[]
+                {
+            new FileDownload("AT.exe", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.2H3/AT.exe"),
+            new FileDownload("AT.pdb", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.2H3/AT.pdb"),
+            new FileDownload("Dependencies.zip", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.2H3/Dependencies.zip")
+        },
+
+                "v1.6.2P" => new[]
+                {
+            new FileDownload("AT.exe", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.6.2P/AT.exe"),
+            new FileDownload("AT.pdb", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.6.2P/AT.pdb"),
+            new FileDownload("Dependencies.zip", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.6.2P/Dependencies.zip")
+        },
+
+                "v1.7.2-preview" => new[]
+                {
+            new FileDownload("AT-1.7.2-preview-windows.zip", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.7.2-preview/AT-1.7.2-preview-windows.zip")
+        },
+
+                "v1.8.0-preview" => new[]
+                {
+            new FileDownload("AT-1.8.0-preview-windows.zip", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.8.0-preview/AT-1.8.0-preview-windows.zip")
+        },
+
+                _ => null
+            };
+#pragma warning restore CS8603 // Possible null reference return.
+        }
 
         private async Task InstallAirlineTycoon(string tempDir, string gameDir, string selectedVersion)
         {
-            string[] fileUrls = null;
-            string[] fileNames = null;
-
-            // Determine the URLs based on the version selected
-            switch (selectedVersion)
+            var versionFiles = GetVersionFiles(selectedVersion);
+            if (versionFiles == null)
             {
-                case "v1.2H3":
-                    fileUrls = new[]
-                    {
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.2H3/AT.exe",
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.2H3/AT.pdb",
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.2H3/Dependencies.zip"
-            };
-                    fileNames = new[] { "AT.exe", "AT.pdb", "Dependencies.zip" };
-                    break;
-
-                case "v1.6.2P":
-                    fileUrls = new[]
-                    {
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.6.2P/AT.exe",
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.6.2P/AT.pdb",
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.6.2P/Dependencies.zip"
-            };
-                    fileNames = new[] { "AT.exe", "AT.pdb", "Dependencies.zip" };
-                    break;
-
-                case "v1.7.2-preview":
-                    fileUrls = new[]
-                    {
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.7.2-preview/AT-1.7.2-preview-windows.zip"
-            };
-                    fileNames = new[] { "AT-1.7.2-preview-windows.zip" };
-                    break;
-
-                case "v1.8.0-preview":
-                    fileUrls = new[]
-                    {
-                "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.8.0-preview/AT-1.8.0-preview-windows.zip"
-            };
-                    fileNames = new[] { "AT-1.8.0-preview-windows.zip" };
-                    break;
-
-                default:
-                    lblStatus.Text = "Unknown version selected.";
-                    return;
+                lblStatus.Text = "Unknown version selected.";
+                return;
             }
 
-            for (int i = 0; i < fileUrls.Length; i++)
-            {
-                lblStatus.Text = $"Downloading {fileNames[i]}...";
-                string localPath = Path.Combine(tempDir, fileNames[i]);
-                byte[] data = await httpClient.GetByteArrayAsync(fileUrls[i]);
-                await File.WriteAllBytesAsync(localPath, data);
-                progressBar1.Value += 10;
+            int totalSteps = versionFiles.Length * 2; // Download + install
+            int currentStep = 0;
 
-                // Handle zip extraction for preview builds
-                if (fileNames[i].EndsWith(".zip"))
+            foreach (var file in versionFiles)
+            {
+                lblStatus.Text = $"Downloading {file.FileName}...";
+                string localPath = Path.Combine(tempDir, file.FileName);
+                byte[] data = await httpClient.GetByteArrayAsync(file.Url);
+                await File.WriteAllBytesAsync(localPath, data);
+
+                currentStep++;
+                progressBar1.Value = 5 + (int)((float)currentStep / totalSteps * 90);
+
+                if (file.FileName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
                 {
-                    lblStatus.Text = $"Extracting {fileNames[i]}...";
-                    ZipFile.ExtractToDirectory(localPath, gameDir);
-                    File.Delete(localPath);
+                    lblStatus.Text = $"Extracting {file.FileName}...";
+                    string extractPath = Path.Combine(tempDir, Path.GetFileNameWithoutExtension(file.FileName));
+                    if (Directory.Exists(extractPath))
+                        Directory.Delete(extractPath, true);
+
+                    ZipFile.ExtractToDirectory(localPath, extractPath);
+
+                    // Optional: Use CopyAll for full overwrite control
+                    CopyAll(new DirectoryInfo(extractPath), new DirectoryInfo(gameDir));
+
+                    File.Delete(localPath); // clean up zip
                 }
                 else
                 {
-                    File.Copy(localPath, Path.Combine(gameDir, fileNames[i]), true);
+                    string destPath = Path.Combine(gameDir, file.FileName);
+                    if (File.Exists(destPath))
+                        File.Delete(destPath);
+
+                    File.Copy(localPath, destPath);
                 }
+
+                currentStep++;
+                progressBar1.Value = 5 + (int)((float)currentStep / totalSteps * 90);
             }
 
-            progressBar1.Value += 10;
+            lblStatus.Text = "Installation complete.";
+            progressBar1.Value = 100;
         }
+
 
 
         private async Task UninstallMods(string gameDir)
@@ -344,8 +360,8 @@ namespace WinFormsApp2
             string tempPath = Path.Combine(Path.GetTempPath(), "ModInstallerTemp");
             Directory.CreateDirectory(tempPath);
 
-            // Check if checkbox2 (cnc-ddraw mod) is ticked and install if so
-            if (checkBox2.Checked)
+                // Check if checkbox2 (cnc-ddraw mod) is ticked and install if so
+                if (checkBox2.Checked)
             {
                 // Get selected version from comboBox1
                 string selectedVersion = comboBox2.SelectedItem.ToString();
@@ -370,6 +386,7 @@ namespace WinFormsApp2
                 }
             }
 
+
             // Check if checkbox3 (AirlineTycoon) is ticked and install if so
             if (checkBox3.Checked)
             {
@@ -377,6 +394,7 @@ namespace WinFormsApp2
                 string selectedVersion = comboBox1.SelectedItem.ToString();
                 await InstallAirlineTycoon(tempPath, gameDir, selectedVersion);
             }
+
 
             if (checkBox4.Checked)
             {
@@ -386,7 +404,53 @@ namespace WinFormsApp2
                     gameDir,
                     "ddraw.ini",  // Name the file "ddraw.ini" when saving
                     10);  // Progress start value
+                await InstallMod(
+                   "https://raw.githubusercontent.com/rockysx27/v6config/main/at.json", // Correct raw URL
+                   tempPath,
+                   gameDir,
+                   "at.json",  // Name the file "ddraw.ini" when saving
+                   10);  // Progress start value
             }
+
+            // Run the game once to initialize on the new engine
+            string atPath = Path.Combine(gameDir, "AT.exe");
+            if (File.Exists(atPath))
+            {
+                lblStatus.Text = "Launching game to complete initialization...";
+                var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = atPath,
+                    WorkingDirectory = gameDir,
+                    UseShellExecute = true
+                });
+                lblStatus.Text = "Waiting 20s for OpenGL initialization...";
+                await Task.Delay(20000); // Wait 5 seconds
+
+                try
+                {
+                    if (!process.HasExited)
+                    {
+                        process.Kill();
+                        lblStatus.Text = "Game closed.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
+                }
+            }
+
+            // THEN install spolszczenie
+            if (checkBox5.Checked)
+            {
+                await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/publish/sploszczenie.zip",
+                    tempPath,
+                    gameDir,
+                    "sploszczenie.zip",
+                    10);
+            }
+
 
             lblStatus.Text = "Done!";
             progressBar1.Value = 100;
@@ -425,7 +489,24 @@ namespace WinFormsApp2
                 progressBar1.Value = progressStart + 40;
 
                 lblStatus.Text = $"Copying files from {fileName}...";
-                CopyAll(new DirectoryInfo(extractDir), new DirectoryInfo(gameDir));
+                // Log files for debugging
+                // Copy all files from the extracted directory to the game directory
+                foreach (var file in Directory.GetFiles(extractDir, "*", SearchOption.AllDirectories))
+                {
+                    // Get the path of the file relative to the extraction root
+                    string relativePath = Path.GetRelativePath(extractDir, file);
+
+                    // Build the full path to where the file should go in the game directory
+                    string targetFile = Path.Combine(gameDir, relativePath);
+
+                    // Ensure the target directory exists
+                    Directory.CreateDirectory(Path.GetDirectoryName(targetFile));
+
+                    // Copy the file, overwriting if it already exists
+                    File.Copy(file, targetFile, overwrite: true);
+                }
+
+
                 progressBar1.Value = progressStart + 50;
             }
             else
@@ -437,20 +518,34 @@ namespace WinFormsApp2
             }
         }
 
-
         private void CopyAll(DirectoryInfo source, DirectoryInfo target)
         {
-            foreach (DirectoryInfo dir in source.GetDirectories())
-            {
-                DirectoryInfo targetSub = target.CreateSubdirectory(dir.Name);
-                CopyAll(dir, targetSub);
-            }
+            if (!target.Exists)
+                target.Create();
 
+            // Copy files
             foreach (FileInfo file in source.GetFiles())
             {
-                file.CopyTo(Path.Combine(target.FullName, file.Name), true);
+                string targetFilePath = Path.Combine(target.FullName, file.Name);
+
+                // Delete existing file before copying
+                if (File.Exists(targetFilePath))
+                {
+                    File.Delete(targetFilePath);
+                }
+
+                file.CopyTo(targetFilePath);
+            }
+
+            // Recursively copy subdirectories
+            foreach (DirectoryInfo subDir in source.GetDirectories())
+            {
+                DirectoryInfo nextTargetSubDir = target.CreateSubdirectory(subDir.Name);
+                CopyAll(subDir, nextTargetSubDir);
             }
         }
+
+
 
         private void lblStatus_Click(object sender, EventArgs e)
         {
@@ -508,27 +603,6 @@ namespace WinFormsApp2
 
             // Toggle mute state
             isMuted = !isMuted;
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            linkLabel2.LinkVisited = true;
-
-            var url = "https://drive.usercontent.google.com/download?id=1s5UQVshmZ0vjCdD2HwGnOoAonUKoWT6B&export=download&authuser=0";
-
-            try
-            {
-                var psi = new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = url,
-                    UseShellExecute = true // This is critical for URLs
-                };
-                System.Diagnostics.Process.Start(psi);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to open link: " + ex.Message);
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)

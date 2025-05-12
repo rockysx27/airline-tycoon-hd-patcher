@@ -43,10 +43,10 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            linkLabel2 = new LinkLabel();
             checkBox4 = new CheckBox();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
+            checkBox5 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -79,18 +79,18 @@
             // 
             // lblStatus
             // 
-            lblStatus.BackColor = Color.Transparent;
-            lblStatus.ForeColor = Color.Transparent;
-            lblStatus.Location = new Point(12, 295);
+            lblStatus.BackColor = SystemColors.ActiveBorder;
+            lblStatus.ForeColor = SystemColors.ActiveCaptionText;
+            lblStatus.Location = new Point(12, 232);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(430, 23);
+            lblStatus.Size = new Size(371, 20);
             lblStatus.TabIndex = 3;
             lblStatus.Text = "Idle";
             lblStatus.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(12, 295);
+            progressBar1.Location = new Point(11, 295);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(430, 23);
             progressBar1.TabIndex = 4;
@@ -153,7 +153,7 @@
             checkBox3.AutoSize = true;
             checkBox3.Checked = true;
             checkBox3.CheckState = CheckState.Checked;
-            checkBox3.Location = new Point(472, 132);
+            checkBox3.Location = new Point(472, 142);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(48, 19);
             checkBox3.TabIndex = 10;
@@ -190,25 +190,12 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // linkLabel2
-            // 
-            linkLabel2.AutoSize = true;
-            linkLabel2.ImeMode = ImeMode.NoControl;
-            linkLabel2.Location = new Point(418, 87);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(73, 15);
-            linkLabel2.TabIndex = 15;
-            linkLabel2.TabStop = true;
-            linkLabel2.Tag = "";
-            linkLabel2.Text = "DUBBING PL";
-            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
-            // 
             // checkBox4
             // 
             checkBox4.AutoSize = true;
             checkBox4.Checked = true;
             checkBox4.CheckState = CheckState.Checked;
-            checkBox4.Location = new Point(389, 105);
+            checkBox4.Location = new Point(389, 90);
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new Size(129, 19);
             checkBox4.TabIndex = 16;
@@ -220,12 +207,12 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "v1.2H3", "v1.6.2P", "v1.7.2-preview", "v1.8.0-preview" });
-            comboBox1.Location = new Point(389, 130);
+            comboBox1.Location = new Point(389, 140);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(75, 23);
             comboBox1.TabIndex = 17;
             comboBox1.Tag = "";
-            comboBox1.SelectedItem = "v1.2H3";
+            comboBox1.SelectedItem = "v1.8.0-preview";
             // 
             // comboBox2
             // 
@@ -239,15 +226,27 @@
             comboBox2.Tag = "";
             comboBox2.SelectedItem = "experimental";
             // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.Checked = true;
+            checkBox5.CheckState = CheckState.Checked;
+            checkBox5.Location = new Point(389, 115);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new Size(92, 19);
+            checkBox5.TabIndex = 19;
+            checkBox5.Text = "Spolszczenie";
+            checkBox5.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 330);
+            Controls.Add(checkBox5);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
             Controls.Add(checkBox4);
-            Controls.Add(linkLabel2);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(checkBox3);
@@ -290,9 +289,9 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private LinkLabel linkLabel2;
         private CheckBox checkBox4;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
+        private CheckBox checkBox5;
     }
 }

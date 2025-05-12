@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>WinFormsApp2</authors>
     <description>Package Description</description>
-    <repository type="git" />
+    <repository type="git" commit="6c4c6b344087231fbe4e790b6fa69481784b84b3" />
     <dependencies>
       <group targetFramework="net8.0-windows7.0" />
     </dependencies>
@@ -19,10 +19,10 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\obj\Release\net8.0-windows\en\WinFormsApp2.resources.dll" target="lib\net8.0-windows7.0\en\WinFormsApp2.resources.dll" />
-    <file src="C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\WinFormsApp2.runtimeconfig.json" target="lib\net8.0-windows7.0\WinFormsApp2.runtimeconfig.json" />
-    <file src="C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\WinFormsApp2.dll" target="lib\net8.0-windows7.0\WinFormsApp2.dll" />
-    <file src="C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\icon.ico" target="content\icon.ico" />
-    <file src="C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\icon.ico" target="contentFiles\any\net8.0-windows7.0\icon.ico" />
+    <file src="C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\obj\Release\net8.0-windows\en\WinFormsApp2.resources.dll" target="lib\net8.0-windows7.0\en\WinFormsApp2.resources.dll" />
+    <file src="C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\WinFormsApp2.runtimeconfig.json" target="lib\net8.0-windows7.0\WinFormsApp2.runtimeconfig.json" />
+    <file src="C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\WinFormsApp2.dll" target="lib\net8.0-windows7.0\WinFormsApp2.dll" />
+    <file src="C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\icon.ico" target="content\icon.ico" />
+    <file src="C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\icon.ico" target="contentFiles\any\net8.0-windows7.0\icon.ico" />
   </files>
 </package>
