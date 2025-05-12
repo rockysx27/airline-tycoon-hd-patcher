@@ -26,7 +26,7 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 6. The game will close automatically after ~20 seconds **or you can exit manually**.  
 
 ## ✅ Compatibility
-Works with Airline Tycoon Deluxe versions 1.2 through 1.8.
+Works with Airline Tycoon Deluxe
 
 ## 💬 Notes
 - Make sure no antivirus interferes with the patcher.
