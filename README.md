@@ -19,11 +19,11 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 ### 🇬🇧 How to Install
 1. Download the `.exe` file.
 2. Run it as administrator.
-3. Select the folder that contains `at.exe`.
-4. The patcher will install the new engine and launch the game.  
+3. Deselect 'Spolszczenie'.
+4. Select the folder that contains `at.exe`.
+5. The patcher will install the new engine and launch the game.  
    *Skip the intro to reach the main menu.*
-5. The game will close automatically after ~20 seconds **or you can exit manually**.  
-   The patcher will then finish installing localization.
+6. The game will close automatically after ~20 seconds **or you can exit manually**.  
 
 ## ✅ Compatibility
 Works with Airline Tycoon Deluxe versions 1.2 through 1.8.
