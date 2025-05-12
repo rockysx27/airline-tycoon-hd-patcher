@@ -3,6 +3,8 @@
 
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
 
+![image](https://github.com/user-attachments/assets/4b307f77-34bc-4fb0-bdb5-8cc22d7b23a2)
+
 ## 📦 Installation Instructions
 
 ### 🇵🇱 Jak zainstalować?
