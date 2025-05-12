@@ -360,13 +360,13 @@ namespace WinFormsApp2
             string tempPath = Path.Combine(Path.GetTempPath(), "ModInstallerTemp");
             Directory.CreateDirectory(tempPath);
 
-                // Check if checkbox2 (cnc-ddraw mod) is ticked and install if so
-                if (checkBox2.Checked)
+            // Check if checkbox2 (cnc-ddraw mod) is ticked and install if so
+            if (checkBox2.Checked)
             {
                 // Get selected version from comboBox1
                 string selectedVersion = comboBox2.SelectedItem.ToString();
                 //
-                if (selectedVersion=="experimental")
+                if (selectedVersion == "experimental")
                 {
                     await InstallMod(
                     "https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/experimental/cnc-ddraw-experimental-release.zip",
@@ -452,7 +452,8 @@ namespace WinFormsApp2
                     gameDir,
                     "evo.zip",
                     10);
-                } else
+                }
+                else
                 {
                     await InstallMod(
                         "https://github.com/rockysx27/v6config/releases/download/publish/spolszczenie.zip",
@@ -674,6 +675,7 @@ namespace WinFormsApp2
         <li>This software may utilize or install files from the following third-party projects:</li>
         <ul>
             <li><strong>cnc-ddraw</strong> by FunkyFr3sh – <a href=""https://github.com/FunkyFr3sh/cnc-ddraw/releases"" target=""_blank"">GitHub Repository</a></li>
+            <li><strong>Pełne spolszczenie do Airline Tycoon Deluxe</strong> by Lili – <a href=""https://steamcommunity.com/sharedfiles/filedetails/?id=1325551452"" target=""_blank"">Steam Guide</a></li>
             <li><strong>Airline Tycoon Patch</strong> by WizzardMaker – <a href=""https://github.com/WizzardMaker"" target=""_blank"">GitHub Repository</a></li>
         </ul>
         <li>All credit for these tools and patches goes to their respective authors.</li>
@@ -715,7 +717,7 @@ namespace WinFormsApp2
     <h2>10. Acceptance of Terms</h2>
     <p>By using, installing, or downloading this program, you affirm that you have read, understood, and agreed to be bound by these Terms of Use. If you do not agree, you must not use this software.</p>
 
-    <p style=""margin-top:2rem;""><strong>Last updated:</strong> May 10, 2025</p>
+    <p style=""margin-top:2rem;""><strong>Last updated:</strong> May 12, 2025</p>
 </body>
 </html>
 
@@ -764,6 +766,158 @@ namespace WinFormsApp2
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var url = "https://lili.lgbt/en/";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var url = "https://wizzardmaker.github.io/portfolio/";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var url = "https://github.com/FunkyFr3sh";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var url = "https://wizzardmaker.github.io/portfolio/";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var url = "https://github.com/rockysx27";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            var url = "https://github.com/rockysx27";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            var url = "https://lili.lgbt/en/";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            var url = "https://github.com/FunkyFr3sh";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Required in .NET Core and .NET 5+
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open link: " + ex.Message);
+            }
         }
     }
 }
