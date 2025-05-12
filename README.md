@@ -1,6 +1,9 @@
 # at.hd-pather  
 **Airline Tycoon Deluxe HD Patcher (v1.2–1.8)**
 
+All credits for dubbing:
+https://lili.lgbt/en/
+
 Dodaje widescreen/usuwa czarne brzegi, patchuje .exe z win10/11 kompatibilnością, dodaje OpenGL engine + shadery i bug fixy.
 
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
