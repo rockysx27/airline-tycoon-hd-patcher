@@ -443,12 +443,24 @@ namespace WinFormsApp2
             // THEN install spolszczenie
             if (checkBox5.Checked)
             {
-                await InstallMod(
-                    "https://github.com/rockysx27/v6config/releases/download/publish/sploszczenie.zip",
+                string selectedVersion = comboBox3.SelectedItem.ToString();
+                if (selectedVersion == "evolution")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/release/evo.zip",
                     tempPath,
                     gameDir,
-                    "sploszczenie.zip",
+                    "evo.zip",
                     10);
+                } else
+                {
+                    await InstallMod(
+                        "https://github.com/rockysx27/v6config/releases/download/publish/spolszczenie.zip",
+                        tempPath,
+                        gameDir,
+                        "spolszczenie.zip",
+                        10);
+                }
             }
 
 

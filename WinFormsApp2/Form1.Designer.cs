@@ -47,6 +47,7 @@
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             checkBox5 = new CheckBox();
+            comboBox3 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -231,18 +232,31 @@
             checkBox5.AutoSize = true;
             checkBox5.Checked = true;
             checkBox5.CheckState = CheckState.Checked;
-            checkBox5.Location = new Point(389, 115);
+            checkBox5.Location = new Point(456, 115);
             checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(92, 19);
+            checkBox5.Size = new Size(64, 19);
             checkBox5.TabIndex = 19;
-            checkBox5.Text = "Spolszczenie";
+            checkBox5.Text = "PL Dub";
             checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "airline tycoon", "evolution" });
+            comboBox3.Location = new Point(389, 111);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(61, 23);
+            comboBox3.TabIndex = 20;
+            comboBox3.Tag = "";
+            comboBox3.SelectedItem = "evolution";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 330);
+            Controls.Add(comboBox3);
             Controls.Add(checkBox5);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
@@ -293,5 +307,6 @@
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private CheckBox checkBox5;
+        private ComboBox comboBox3;
     }
 }
