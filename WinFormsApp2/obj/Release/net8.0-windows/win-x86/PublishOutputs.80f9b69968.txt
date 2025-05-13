@@ -1,0 +1,8 @@
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\WinFormsApp2.pdb
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\sound.wav
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\D3DCompiler_47_cor3.dll
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\PenImc_cor3.dll
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\PresentationNative_cor3.dll
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\vcruntime140_cor3.dll
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\wpfgfx_cor3.dll
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\publishXXXX\WinFormsApp2.exe
