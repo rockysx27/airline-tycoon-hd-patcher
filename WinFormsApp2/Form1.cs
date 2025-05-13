@@ -133,6 +133,12 @@ namespace WinFormsApp2
 
             // Set button text based on the current mode
             button2.Text = isDarkMode ? "☀️" : "🌙";
+
+            comboBox1.SelectedItem = "v1.8.0-preview";
+            comboBox2.SelectedItem = "experimental";
+            comboBox3.SelectedItem = "evolution";
+            comboBox4.SelectedItem = "normal";
+            comboBox5.SelectedItem = "🇵🇱";
         }
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -495,12 +501,42 @@ namespace WinFormsApp2
             //
             if (checkBox6.Checked)
             {
-                await InstallMod(
-                "https://github.com/rockysx27/v6config/releases/download/csv/csv.zip", // Correct raw URL
-                tempPath,
-                gameDir,
-                "csv.zip",
-                10);
+                string selectedVersion = comboBox5.SelectedItem.ToString();
+                if (selectedVersion == "🇵🇱")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-pl/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                }
+                else if (selectedVersion == "🇩🇪")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-de/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                } else if (selectedVersion == "🇬🇧")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-uk/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                } else
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-us/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                }
+
             }
 
             lblStatus.Text = "Done!";
@@ -512,9 +548,6 @@ namespace WinFormsApp2
                           // Alternatively, you can use Application.Exit() to close the whole application, if needed.
                           // Application.Exit(); 
         }
-
-
-
 
         private async Task InstallMod(string url, string tempDir, string gameDir, string fileName, int progressStart)
         {
@@ -955,6 +988,19 @@ namespace WinFormsApp2
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to open link: " + ex.Message);
+            }
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedVersion = comboBox5.SelectedItem.ToString();
+            if (selectedVersion != "🇵🇱")
+            {
+                checkBox5.Checked = false;
+            }
+            else
+            {
+                checkBox5.Checked = true;
             }
         }
     }
