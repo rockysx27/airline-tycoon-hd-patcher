@@ -404,45 +404,72 @@ namespace WinFormsApp2
                     gameDir,
                     "ddraw.ini",  // Name the file "ddraw.ini" when saving
                     10);  // Progress start value
-                await InstallMod(
+
+                string selectedVersion = comboBox4.SelectedItem.ToString();
+
+                if (selectedVersion == "normal")
+                {
+                    await InstallMod(
                    "https://raw.githubusercontent.com/rockysx27/v6config/main/at.json", // Correct raw URL
                    tempPath,
                    gameDir,
                    "at.json",  // Name the file "ddraw.ini" when saving
                    10);  // Progress start value
-            }
-
-            // Run the game once to initialize on the new engine
-            string atPath = Path.Combine(gameDir, "AT.exe");
-            if (File.Exists(atPath))
-            {
-                lblStatus.Text = "Launching game to complete initialization...";
-                var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = atPath,
-                    WorkingDirectory = gameDir,
-                    UseShellExecute = true
-                });
-                lblStatus.Text = "Waiting 20s for OpenGL initialization...";
-                await Task.Delay(20000); // Wait 5 seconds
-
-                try
-                {
-                    if (!process.HasExited)
-                    {
-                        process.Kill();
-                        lblStatus.Text = "Game closed.";
-                    }
                 }
-                catch (Exception ex)
+                else if (selectedVersion == "hard")
                 {
-                    MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
+                    await InstallMod(
+                    "https://raw.githubusercontent.com/rockysx27/v6config/main/hard/at.json", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "at.json",  // Name the file "ddraw.ini" when saving
+                    10);  // Progress start value
                 }
+                else
+                {
+                    await InstallMod(
+                    "https://raw.githubusercontent.com/rockysx27/v6config/main/hardcore/at.json", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "at.json",  // Name the file "ddraw.ini" when saving
+                    10);  // Progress start value
+                }
+
+
             }
 
             // THEN install spolszczenie
             if (checkBox5.Checked)
             {
+
+                // Run the game once to initialize on the new engine
+                string atPath = Path.Combine(gameDir, "AT.exe");
+                if (File.Exists(atPath))
+                {
+                    lblStatus.Text = "Launching game to complete initialization...";
+                    var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = atPath,
+                        WorkingDirectory = gameDir,
+                        UseShellExecute = true
+                    });
+                    lblStatus.Text = "Waiting 20s for OpenGL initialization...";
+                    await Task.Delay(20000); // Wait 5 seconds
+
+                    try
+                    {
+                        if (!process.HasExited)
+                        {
+                            process.Kill();
+                            lblStatus.Text = "Game closed.";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
+                    }
+                }
+
                 string selectedVersion = comboBox3.SelectedItem.ToString();
                 if (selectedVersion == "evolution")
                 {
@@ -464,6 +491,17 @@ namespace WinFormsApp2
                 }
             }
 
+
+            //
+            if (checkBox6.Checked)
+            {
+                await InstallMod(
+                "https://github.com/rockysx27/v6config/releases/download/csv/csv.zip", // Correct raw URL
+                tempPath,
+                gameDir,
+                "csv.zip",
+                10);
+            }
 
             lblStatus.Text = "Done!";
             progressBar1.Value = 100;

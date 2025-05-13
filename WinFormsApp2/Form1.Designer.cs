@@ -60,6 +60,9 @@
             pictureBox5 = new PictureBox();
             linkLabel5 = new LinkLabel();
             label1 = new Label();
+            checkBox6 = new CheckBox();
+            comboBox4 = new ComboBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -126,7 +129,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(447, 202);
+            linkLabel1.Location = new Point(361, 213);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(75, 15);
             linkLabel1.TabIndex = 6;
@@ -137,7 +140,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(452, 220);
+            checkBox1.Location = new Point(366, 231);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(63, 19);
             checkBox1.TabIndex = 7;
@@ -149,7 +152,7 @@
             checkBox2.AutoSize = true;
             checkBox2.Checked = true;
             checkBox2.CheckState = CheckState.Checked;
-            checkBox2.Location = new Point(446, 166);
+            checkBox2.Location = new Point(446, 180);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(76, 19);
             checkBox2.TabIndex = 9;
@@ -162,7 +165,7 @@
             checkBox3.AutoSize = true;
             checkBox3.Checked = true;
             checkBox3.CheckState = CheckState.Checked;
-            checkBox3.Location = new Point(446, 139);
+            checkBox3.Location = new Point(446, 153);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(58, 19);
             checkBox3.TabIndex = 10;
@@ -208,7 +211,7 @@
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new Size(78, 19);
             checkBox4.TabIndex = 16;
-            checkBox4.Text = "V6 Config";
+            checkBox4.Text = "Config V6";
             checkBox4.UseVisualStyleBackColor = true;
             // 
             // comboBox1
@@ -216,7 +219,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "v1.2H3", "v1.6.2P", "v1.7.2-preview", "v1.8.0-preview" });
-            comboBox1.Location = new Point(383, 137);
+            comboBox1.Location = new Point(383, 151);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(61, 23);
             comboBox1.TabIndex = 17;
@@ -228,7 +231,7 @@
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "v7.1.0.0", "experimental" });
-            comboBox2.Location = new Point(383, 164);
+            comboBox2.Location = new Point(383, 178);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(61, 23);
             comboBox2.TabIndex = 18;
@@ -242,9 +245,9 @@
             checkBox5.CheckState = CheckState.Checked;
             checkBox5.Location = new Point(446, 112);
             checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(91, 19);
+            checkBox5.Size = new Size(88, 19);
             checkBox5.TabIndex = 19;
-            checkBox5.Text = "spolszczenie";
+            checkBox5.Text = "PL Dubbing";
             checkBox5.UseVisualStyleBackColor = true;
             // 
             // comboBox3
@@ -281,7 +284,7 @@
             // linkLabel3
             // 
             linkLabel3.AutoSize = true;
-            linkLabel3.Location = new Point(303, 139);
+            linkLabel3.Location = new Point(303, 153);
             linkLabel3.Name = "linkLabel3";
             linkLabel3.Size = new Size(81, 15);
             linkLabel3.TabIndex = 24;
@@ -292,7 +295,7 @@
             // linkLabel4
             // 
             linkLabel4.AutoSize = true;
-            linkLabel4.Location = new Point(317, 167);
+            linkLabel4.Location = new Point(317, 181);
             linkLabel4.Name = "linkLabel4";
             linkLabel4.Size = new Size(67, 15);
             linkLabel4.TabIndex = 25;
@@ -333,7 +336,7 @@
             // pictureBox2
             // 
             pictureBox2.ImageLocation = "https://avatars.githubusercontent.com/u/7768485?v=4";
-            pictureBox2.Location = new Point(282, 134);
+            pictureBox2.Location = new Point(282, 148);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(24, 24);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -356,7 +359,7 @@
             // pictureBox4
             // 
             pictureBox4.ImageLocation = "https://avatars.githubusercontent.com/u/8355237?v=4";
-            pictureBox4.Location = new Point(296, 163);
+            pictureBox4.Location = new Point(296, 177);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(24, 24);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -389,19 +392,52 @@
             // 
             label1.BackColor = Color.Transparent;
             label1.ForeColor = SystemColors.HotTrack;
-            label1.Location = new Point(361, 204);
+            label1.Location = new Point(275, 215);
             label1.Name = "label1";
             label1.Size = new Size(87, 32);
             label1.TabIndex = 34;
             label1.Text = "v1.1 12/05/2025";
             label1.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // checkBox6
+            // 
+            checkBox6.AutoSize = true;
+            checkBox6.Checked = true;
+            checkBox6.CheckState = CheckState.Checked;
+            checkBox6.Location = new Point(446, 132);
+            checkBox6.Name = "checkBox6";
+            checkBox6.Size = new Size(82, 19);
+            checkBox6.TabIndex = 35;
+            checkBox6.Text = "PL Data V6";
+            checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // comboBox4
+            // 
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "normal", "hard", "hardcore" });
+            comboBox4.Location = new Point(448, 221);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(74, 23);
+            comboBox4.TabIndex = 36;
+            comboBox4.Tag = "";
+            comboBox4.SelectedItem = "normal";
+            // 
+            // label6
+            // 
+            label6.Location = new Point(448, 204);
+            label6.Name = "label6";
+            label6.Size = new Size(74, 24);
+            label6.TabIndex = 37;
+            label6.Text = "Difficulty:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 330);
-            Controls.Add(label1);
+            Controls.Add(comboBox4);
+            Controls.Add(checkBox6);
             Controls.Add(linkLabel5);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
@@ -432,6 +468,8 @@
             Controls.Add(txtGameDir);
             Controls.Add(button3);
             Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(label6);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MaximumSize = new Size(548, 369);
@@ -481,5 +519,8 @@
         private PictureBox pictureBox5;
         private LinkLabel linkLabel5;
         private Label label1;
+        private CheckBox checkBox6;
+        private ComboBox comboBox4;
+        private Label label6;
     }
 }
