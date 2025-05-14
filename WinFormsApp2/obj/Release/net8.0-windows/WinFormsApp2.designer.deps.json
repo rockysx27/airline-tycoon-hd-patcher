@@ -9,12 +9,6 @@
       "Costura.Fody/6.0.0": {
         "dependencies": {
           "Fody": "6.9.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Costura.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.0.0"
-          }
         }
       },
       "Fody/6.9.2": {}

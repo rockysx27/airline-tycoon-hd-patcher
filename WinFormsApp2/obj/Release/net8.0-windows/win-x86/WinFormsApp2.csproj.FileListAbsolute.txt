@@ -717,7 +717,6 @@ C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\hostfxr.dll
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\hostpolicy.dll
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\mscordaccore.dll
-C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\mscordaccore_x86_x86_8.0.1525.16413.dll
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\mscordbi.dll
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\mscorrc.dll
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\msquic.dll
@@ -965,3 +964,4 @@ C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\obj\Release\
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\obj\Release\net8.0-windows\win-x86\WinFormsApp2.pdb
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\obj\Release\net8.0-windows\win-x86\WinFormsApp2.genruntimeconfig.cache
 C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\obj\Release\net8.0-windows\win-x86\ref\WinFormsApp2.dll
+C:\Users\Forest\source\repos\WinFormsApp2\at.hd-pather\WinFormsApp2\bin\Release\net8.0-windows\win-x86\mscordaccore_x86_x86_8.0.1625.21506.dll

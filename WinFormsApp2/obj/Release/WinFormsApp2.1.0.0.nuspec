@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>WinFormsApp2</authors>
     <description>Package Description</description>
-    <repository type="git" commit="689ea1f3f4640c14af43158bd972d26ce358f033" />
+    <repository type="git" commit="5966ce02ae81f2240637c4bec020f47a55d76428" />
     <dependencies>
       <group targetFramework="net8.0-windows7.0" />
     </dependencies>
