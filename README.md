@@ -9,8 +9,6 @@ DUBBING FOR: RUSSIAN, PORTUGUESE, SPANISH, POLISH
 
 V6 DATA FOR: ENGLISH, GERMAN, POLISH, RUSSIAN, PORTUGUESE, SPANISH, FRENCH
 
-Dodaje widescreen/usuwa czarne brzegi, patchuje .exe z win10/11 kompatibilnością, dodaje OpenGL engine + shadery i bug fixy.
-
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
 
 ![image](https://github.com/user-attachments/assets/df6a6d11-6861-4a88-9f6e-26472371d228)
