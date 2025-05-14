@@ -70,6 +70,7 @@
             label5 = new Label();
             label3 = new Label();
             label7 = new Label();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -162,7 +163,7 @@
             checkBox2.AutoSize = true;
             checkBox2.Checked = true;
             checkBox2.CheckState = CheckState.Checked;
-            checkBox2.Location = new Point(452, 160);
+            checkBox2.Location = new Point(452, 152);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(76, 19);
             checkBox2.TabIndex = 9;
@@ -175,7 +176,7 @@
             checkBox3.AutoSize = true;
             checkBox3.Checked = true;
             checkBox3.CheckState = CheckState.Checked;
-            checkBox3.Location = new Point(452, 133);
+            checkBox3.Location = new Point(452, 125);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(58, 19);
             checkBox3.TabIndex = 10;
@@ -217,7 +218,7 @@
             checkBox4.AutoSize = true;
             checkBox4.Checked = true;
             checkBox4.CheckState = CheckState.Checked;
-            checkBox4.Location = new Point(452, 66);
+            checkBox4.Location = new Point(452, 46);
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new Size(78, 19);
             checkBox4.TabIndex = 16;
@@ -229,7 +230,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "v1.2H3", "v1.6.2P", "v1.7.2-preview", "v1.8.0-preview" });
-            comboBox1.Location = new Point(389, 131);
+            comboBox1.Location = new Point(389, 123);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(61, 23);
             comboBox1.TabIndex = 17;
@@ -240,7 +241,7 @@
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "v7.1.0.0", "experimental" });
-            comboBox2.Location = new Point(389, 158);
+            comboBox2.Location = new Point(389, 150);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(61, 23);
             comboBox2.TabIndex = 18;
@@ -251,11 +252,11 @@
             checkBox5.AutoSize = true;
             checkBox5.Checked = true;
             checkBox5.CheckState = CheckState.Checked;
-            checkBox5.Location = new Point(452, 106);
+            checkBox5.Location = new Point(452, 86);
             checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(65, 19);
+            checkBox5.Size = new Size(72, 19);
             checkBox5.TabIndex = 19;
-            checkBox5.Text = "PL DUB";
+            checkBox5.Text = "Dubbing";
             checkBox5.UseVisualStyleBackColor = true;
             // 
             // comboBox3
@@ -263,7 +264,7 @@
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "airline tycoon", "evolution" });
-            comboBox3.Location = new Point(389, 104);
+            comboBox3.Location = new Point(389, 84);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(61, 23);
             comboBox3.TabIndex = 20;
@@ -272,7 +273,7 @@
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
-            linkLabel2.Location = new Point(366, 106);
+            linkLabel2.Location = new Point(366, 86);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(22, 15);
             linkLabel2.TabIndex = 23;
@@ -283,7 +284,7 @@
             // linkLabel3
             // 
             linkLabel3.AutoSize = true;
-            linkLabel3.Location = new Point(307, 134);
+            linkLabel3.Location = new Point(307, 126);
             linkLabel3.Name = "linkLabel3";
             linkLabel3.Size = new Size(81, 15);
             linkLabel3.TabIndex = 24;
@@ -294,7 +295,7 @@
             // linkLabel4
             // 
             linkLabel4.AutoSize = true;
-            linkLabel4.Location = new Point(316, 160);
+            linkLabel4.Location = new Point(316, 152);
             linkLabel4.Name = "linkLabel4";
             linkLabel4.Size = new Size(67, 15);
             linkLabel4.TabIndex = 25;
@@ -305,7 +306,7 @@
             // pictureBox2
             // 
             pictureBox2.ImageLocation = "https://avatars.githubusercontent.com/u/7768485?v=4";
-            pictureBox2.Location = new Point(286, 129);
+            pictureBox2.Location = new Point(286, 121);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(24, 24);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -317,7 +318,7 @@
             // 
             pictureBox3.Image = Properties.Resources._06539c5370d3fedac1cc7d969f8836c3;
             pictureBox3.ImageLocation = "";
-            pictureBox3.Location = new Point(345, 103);
+            pictureBox3.Location = new Point(345, 83);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(24, 24);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -328,7 +329,7 @@
             // pictureBox4
             // 
             pictureBox4.ImageLocation = "https://avatars.githubusercontent.com/u/8355237?v=4";
-            pictureBox4.Location = new Point(295, 157);
+            pictureBox4.Location = new Point(295, 149);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(24, 24);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -339,7 +340,7 @@
             // pictureBox5
             // 
             pictureBox5.ImageLocation = "https://avatars.githubusercontent.com/u/128807992?v=4";
-            pictureBox5.Location = new Point(321, 40);
+            pictureBox5.Location = new Point(286, 9);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(24, 24);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -350,12 +351,12 @@
             // linkLabel5
             // 
             linkLabel5.AutoSize = true;
-            linkLabel5.Location = new Point(342, 45);
+            linkLabel5.Location = new Point(307, 14);
             linkLabel5.Name = "linkLabel5";
-            linkLabel5.Size = new Size(147, 15);
+            linkLabel5.Size = new Size(123, 15);
             linkLabel5.TabIndex = 33;
             linkLabel5.TabStop = true;
-            linkLabel5.Text = "Patcher Made by Leds7777";
+            linkLabel5.Text = "Patcher Made by Leds";
             linkLabel5.LinkClicked += linkLabel5_LinkClicked;
             // 
             // label1
@@ -374,7 +375,7 @@
             checkBox6.AutoSize = true;
             checkBox6.Checked = true;
             checkBox6.CheckState = CheckState.Checked;
-            checkBox6.Location = new Point(452, 85);
+            checkBox6.Location = new Point(452, 65);
             checkBox6.Name = "checkBox6";
             checkBox6.Size = new Size(66, 19);
             checkBox6.TabIndex = 35;
@@ -405,8 +406,8 @@
             comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox5.Font = new Font("Segoe UI Emoji", 10F);
             comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "🇺🇸", "🇬🇧", "🇵🇱", "🇩🇪" });
-            comboBox5.Location = new Point(389, 73);
+            comboBox5.Items.AddRange(new object[] { "🇺🇸", "🇬🇧", "🇵🇱", "🇩🇪", "🇪🇸", "🇷🇺", "🇫🇷", "🇧🇷" });
+            comboBox5.Location = new Point(389, 53);
             comboBox5.Name = "comboBox5";
             comboBox5.Size = new Size(61, 25);
             comboBox5.TabIndex = 38;
@@ -505,17 +506,27 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(329, 78);
+            label7.Location = new Point(329, 58);
             label7.Name = "label7";
             label7.Size = new Size(62, 15);
             label7.TabIndex = 47;
             label7.Text = "Language:";
+            // 
+            // label10
+            // 
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(198, 36);
+            label10.Name = "label10";
+            label10.Size = new Size(77, 48);
+            label10.TabIndex = 48;
+            label10.Text = "250+ cities 4000+ routes 50+ planes";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 330);
+            Controls.Add(label10);
             Controls.Add(linkLabel5);
             Controls.Add(pictureBox6);
             Controls.Add(label8);
@@ -619,5 +630,6 @@
         private Label label5;
         private Label label3;
         private Label label7;
+        private Label label10;
     }
 }

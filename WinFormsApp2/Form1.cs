@@ -366,6 +366,107 @@ namespace WinFormsApp2
             string tempPath = Path.Combine(Path.GetTempPath(), "ModInstallerTemp");
             Directory.CreateDirectory(tempPath);
 
+            // THEN install spolszczenie
+            if (checkBox5.Checked)
+            {
+
+                // Run the game once to initialize on the new engine
+                string atPath = Path.Combine(gameDir, "AT.exe");
+                if (File.Exists(atPath))
+                {
+                    lblStatus.Text = "Launching game to complete initialization...";
+                    var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = atPath,
+                        WorkingDirectory = gameDir,
+                        UseShellExecute = true
+                    });
+
+                    lblStatus.Text = "Waiting up to 20s for OpenGL initialization...";
+
+                    int maxWaitMs = 20000;
+                    int pollIntervalMs = 500;
+                    int waitedMs = 0;
+
+                    while (!process.HasExited && waitedMs < maxWaitMs)
+                    {
+                        await Task.Delay(pollIntervalMs);
+                        waitedMs += pollIntervalMs;
+                    }
+
+                    try
+                    {
+                        if (!process.HasExited)
+                        {
+                            process.Kill();
+                            lblStatus.Text = "Game closed forcibly after 20s.";
+                        }
+                        else
+                        {
+                            lblStatus.Text = "Game closed early.";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
+                    }
+                }
+
+
+                string selectedVersion = comboBox3.SelectedItem.ToString();
+
+                string selectedLanguage = comboBox5.SelectedItem.ToString();
+
+                if (selectedLanguage == "🇵🇱")
+                {
+                    if (selectedVersion == "evolution")
+                    {
+                        await InstallMod(
+                        "https://github.com/rockysx27/v6config/releases/download/release/evo.zip",
+                        tempPath,
+                        gameDir,
+                        "evo.zip",
+                        10);
+                    }
+                    else
+                    {
+                        await InstallMod(
+                            "https://github.com/rockysx27/v6config/releases/download/publish/spolszczenie.zip",
+                            tempPath,
+                            gameDir,
+                            "spolszczenie.zip",
+                            10);
+                    }
+                }
+                else if (selectedLanguage == "🇪🇸")
+                {
+                    await InstallMod(
+                           "https://github.com/rockysx27/v6config/releases/download/dub-es/espanol.zip",
+                           tempPath,
+                           gameDir,
+                           "espanol.zip",
+                           10);
+                }
+                else if (selectedLanguage == "🇷🇺")
+                {
+                    await InstallMod(
+                           "https://github.com/rockysx27/v6config/releases/download/dub-rus/russian.zip",
+                           tempPath,
+                           gameDir,
+                           "russian.zip",
+                           10);
+                }
+                else
+                {
+                    await InstallMod(
+                           "https://github.com/rockysx27/v6config/releases/download/dub-br/portugese.zip",
+                           tempPath,
+                           gameDir,
+                           "portugese.zip",
+                           10);
+                }
+            }
+
             // Check if checkbox2 (cnc-ddraw mod) is ticked and install if so
             if (checkBox2.Checked)
             {
@@ -404,6 +505,7 @@ namespace WinFormsApp2
 
             if (checkBox4.Checked)
             {
+                // Install the ddraw.ini mod
                 await InstallMod(
                     "https://raw.githubusercontent.com/rockysx27/v6config/main/ddraw.ini", // Correct raw URL
                     tempPath,
@@ -411,94 +513,110 @@ namespace WinFormsApp2
                     "ddraw.ini",  // Name the file "ddraw.ini" when saving
                     10);  // Progress start value
 
+                // Get the selected language
+                string selectedLanguage = comboBox5.SelectedItem.ToString();
+                int languageCode = selectedLanguage switch
+                {
+                    "🇩🇪" => 0,
+                    "🇬🇧" => 1,
+                    "🇺🇸" => 1,
+                    "🇫🇷" => 2,
+                    "🇪🇸" => 7,
+                    "🇵🇱" => 8,
+                    "🇧🇷" => 9,
+                    "🇷🇺" => 10,
+                    _ => 1 // Default to 'en' if the language is not found
+                };
+
+                // Get the selected difficulty
                 string selectedVersion = comboBox4.SelectedItem.ToString();
+                int maxDifficulty1 = 142;
+                int maxDifficulty2 = 111;
+                int maxDifficulty3 = 298;
 
-                if (selectedVersion == "normal")
+                if (selectedVersion == "hard")
                 {
-                    await InstallMod(
-                   "https://raw.githubusercontent.com/rockysx27/v6config/main/at.json", // Correct raw URL
-                   tempPath,
-                   gameDir,
-                   "at.json",  // Name the file "ddraw.ini" when saving
-                   10);  // Progress start value
+                    maxDifficulty1 = 200;  // between 111 and 298
+                    maxDifficulty2 = 180;  // between 111 and 298
+                    maxDifficulty3 = 280;  // between 111 and 298
                 }
-                else if (selectedVersion == "hard")
+                else if (selectedVersion == "hardcore")
                 {
-                    await InstallMod(
-                    "https://raw.githubusercontent.com/rockysx27/v6config/main/hard/at.json", // Correct raw URL
-                    tempPath,
-                    gameDir,
-                    "at.json",  // Name the file "ddraw.ini" when saving
-                    10);  // Progress start value
-                }
-                else
-                {
-                    await InstallMod(
-                    "https://raw.githubusercontent.com/rockysx27/v6config/main/hardcore/at.json", // Correct raw URL
-                    tempPath,
-                    gameDir,
-                    "at.json",  // Name the file "ddraw.ini" when saving
-                    10);  // Progress start value
+                    maxDifficulty1 = 260;  // between 111 and 298
+                    maxDifficulty2 = 240;  // between 111 and 298
+                    maxDifficulty3 = 298;  // max allowed
                 }
 
+                // Construct the at.json file content
+                string atJsonContent = $@"
+{{
+    ""OptionLanguage"": {languageCode},
+    ""bConfigNoVgaRam"": 0,
+    ""bConfigNoSpeedyMouse"": 0,
+    ""bConfigWinMouse"": 0,
+    ""bConfigNoDigiSound"": 0,
+    ""OptionFullscreen"": 2,
+    ""OptionKeepAspectRatio"": false,
+    ""OptionTicketPriceIncrement"": 10,
+    ""OptionRentOfficeTriggerPercent"": 20,
+    ""OptionRentOfficeMinAvailable"": 0,
+    ""OptionRentOfficeMaxAvailable"": 3,
+    ""OptionScreenWindowedWidth"": 1920,
+    ""OptionScreenWindowedHeight"": 1080,
+    ""OptionPlanes"": true,
+    ""OptionPassengers"": true,
+    ""OptionMusicType"": 2,
+    ""OptionEnableDigi"": true,
+    ""OptionMusik"": 3,
+    ""OptionLoopMusik"": 0,
+    ""OptionAmbiente"": 3,
+    ""OptionRealKuerzel"": true,
+    ""OptionDurchsagen"": 3,
+    ""OptionPlaneVolume"": 3,
+    ""OptionEffekte"": 3,
+    ""OptionGirl"": true,
+    ""OptionBerater"": true,
+    ""OptionBriefBriefing"": true,
+    ""OptionBlenden"": true,
+    ""OptionTransparenz"": true,
+    ""OptionSchatten"": true,
+    ""OptionAirport"": 16777330,
+    ""OptionThinkBubbles"": true,
+    ""OptionFlipping"": false,
+    ""Sim.MaxDifficulty"": {maxDifficulty1},
+    ""Sim.MaxDifficulty2"": {maxDifficulty2},
+    ""Sim.MaxDifficulty3"": {maxDifficulty3},
+    ""OptionAutosave"": true,
+    ""OptionFax"": true,
+    ""OptionRoundNumber"": true,
+    ""Sim.GameSpeed"": 30,
+    ""OptionViewedIntro"": true,
+    ""OptionTalking"": 7,
+    ""OptionSpeechBubble"": true,
+    ""OptionRandomStartday"": true,
+    ""OptionRoomDescription"": 1026,
+    ""&AppPath"": ""C:\\GOG Games\\Airline Tycoon Deluxe\\"",
+    ""OptionLastPlayer"": 1,
+    ""KeyHints1"": 0,
+    ""KeyHints2"": 0,
+    ""OptionLastMission"": 0,
+    ""OptionLastMission3"": 41,
+    ""OptionLastMission2"": 11,
+    ""OptionLastProvider"": 0,
+    ""OptionMasterServer"": ""master.open-airlinetycoon.com"",
+    ""Player0"": ""TINA CORTEZ          "",
+    ""Player1"": ""SIGGI SORGLOS        "",
+    ""Player2"": ""IGOR TUPPOLEVSKY     "",
+    ""Player3"": ""MARIO ZUCCHERO       "",
+    ""OptionMasterVolume"": 7
+}}";
 
+                // Save the constructed at.json content to the game directory
+                await File.WriteAllTextAsync(Path.Combine(gameDir, "at.json"), atJsonContent);
             }
 
-            // THEN install spolszczenie
-            if (checkBox5.Checked)
-            {
 
-                // Run the game once to initialize on the new engine
-                string atPath = Path.Combine(gameDir, "AT.exe");
-                if (File.Exists(atPath))
-                {
-                    lblStatus.Text = "Launching game to complete initialization...";
-                    var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = atPath,
-                        WorkingDirectory = gameDir,
-                        UseShellExecute = true
-                    });
-                    lblStatus.Text = "Waiting 20s for OpenGL initialization...";
-                    await Task.Delay(20000); // Wait 5 seconds
-
-                    try
-                    {
-                        if (!process.HasExited)
-                        {
-                            process.Kill();
-                            lblStatus.Text = "Game closed.";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
-                    }
-                }
-
-                string selectedVersion = comboBox3.SelectedItem.ToString();
-                if (selectedVersion == "evolution")
-                {
-                    await InstallMod(
-                    "https://github.com/rockysx27/v6config/releases/download/release/evo.zip",
-                    tempPath,
-                    gameDir,
-                    "evo.zip",
-                    10);
-                }
-                else
-                {
-                    await InstallMod(
-                        "https://github.com/rockysx27/v6config/releases/download/publish/spolszczenie.zip",
-                        tempPath,
-                        gameDir,
-                        "spolszczenie.zip",
-                        10);
-                }
-            }
-
-
-            //
+            //"🇺🇸", "🇬🇧", "🇵🇱", "🇩🇪", "🇪🇸", "🇷🇺", "🇫🇷"
             if (checkBox6.Checked)
             {
                 string selectedVersion = comboBox5.SelectedItem.ToString();
@@ -527,10 +645,47 @@ namespace WinFormsApp2
                     gameDir,
                     "data.zip",
                     10);
-                } else
+                }
+                else if (selectedVersion == "🇺🇸")
                 {
                     await InstallMod(
                     "https://github.com/rockysx27/v6config/releases/download/csv-us/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                }
+                else if (selectedVersion == "🇪🇸")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-es/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                }
+                else if (selectedVersion == "🇷🇺")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-rus/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                }
+                else if (selectedVersion == "🇫🇷")
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-fre/data.zip", // Correct raw URL
+                    tempPath,
+                    gameDir,
+                    "data.zip",
+                    10);
+                }
+                else
+                {
+                    await InstallMod(
+                    "https://github.com/rockysx27/v6config/releases/download/csv-br/data.zip", // Correct raw URL
                     tempPath,
                     gameDir,
                     "data.zip",
@@ -994,13 +1149,22 @@ namespace WinFormsApp2
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedVersion = comboBox5.SelectedItem.ToString();
-            if (selectedVersion != "🇵🇱")
+            if (selectedVersion == "🇵🇱" || selectedVersion == "🇪🇸" || selectedVersion == "🇷🇺" || selectedVersion == "🇧🇷")
             {
-                checkBox5.Checked = false;
+                if (selectedVersion == "🇵🇱")
+                {
+                    comboBox3.Enabled = true;
+                }
+                else
+                {
+                    comboBox3.Enabled = false;
+                }
+                checkBox5.Checked = true;
             }
             else
             {
-                checkBox5.Checked = true;
+                comboBox3.Enabled = false;
+                checkBox5.Checked = false;
             }
         }
     }
