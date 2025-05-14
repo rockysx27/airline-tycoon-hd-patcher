@@ -8,7 +8,7 @@ Dodaje widescreen/usuwa czarne brzegi, patchuje .exe z win10/11 kompatibilności
 
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
 
-![image](https://github.com/user-attachments/assets/451b53ef-5464-459a-9dcc-5fb92993e10f)
+![image](https://github.com/user-attachments/assets/df6a6d11-6861-4a88-9f6e-26472371d228)
 
 ## 📦 Installation Instructions
 
@@ -24,7 +24,7 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 ### 🇬🇧 How to Install
 1. Download the `.exe` file.
 2. Run it as administrator.
-3. Deselect 'Spolszczenie'.
+3. Select your Language (If you want to play in French and you own Steam copy you have to buy the GOG).
 4. Select the folder that contains `at.exe`.
 5. The patcher will install the new engine and launch the game.  
    *Skip the intro to reach the main menu.*
