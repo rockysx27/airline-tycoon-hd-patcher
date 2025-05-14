@@ -134,7 +134,7 @@ namespace WinFormsApp2
             // Set button text based on the current mode
             button2.Text = isDarkMode ? "☀️" : "🌙";
 
-            comboBox1.SelectedItem = "v1.8.0-preview";
+            comboBox1.SelectedItem = "v1.9.0";
             comboBox2.SelectedItem = "experimental";
             comboBox3.SelectedItem = "evolution";
             comboBox4.SelectedItem = "normal";
@@ -187,6 +187,14 @@ namespace WinFormsApp2
                 "v1.8.0-preview" => new[]
                 {
             new FileDownload("AT-1.8.0-preview-windows.zip", "https://github.com/WizzardMaker/AirlineTycoon/releases/download/v1.8.0-preview/AT-1.8.0-preview-windows.zip")
+        },
+                "v1.8.4" => new[]
+        {
+            new FileDownload("AT-1.8.4-windows.zip", "https://github.com/mertenpopp/AirlineTycoon/releases/download/v1.8.4/AT-1.8.4-windows.zip")
+        },
+                "v1.9.0" => new[]
+        {
+            new FileDownload("AT-1.9.0-windows.zip", "https://github.com/mertenpopp/AirlineTycoon/releases/download/v1.9.0/AT-1.9.0-windows.zip")
         },
 
                 _ => null
@@ -366,107 +374,6 @@ namespace WinFormsApp2
             string tempPath = Path.Combine(Path.GetTempPath(), "ModInstallerTemp");
             Directory.CreateDirectory(tempPath);
 
-            // THEN install spolszczenie
-            if (checkBox5.Checked)
-            {
-
-                // Run the game once to initialize on the new engine
-                string atPath = Path.Combine(gameDir, "AT.exe");
-                if (File.Exists(atPath))
-                {
-                    lblStatus.Text = "Launching game to complete initialization...";
-                    var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = atPath,
-                        WorkingDirectory = gameDir,
-                        UseShellExecute = true
-                    });
-
-                    lblStatus.Text = "Waiting up to 20s for OpenGL initialization...";
-
-                    int maxWaitMs = 20000;
-                    int pollIntervalMs = 500;
-                    int waitedMs = 0;
-
-                    while (!process.HasExited && waitedMs < maxWaitMs)
-                    {
-                        await Task.Delay(pollIntervalMs);
-                        waitedMs += pollIntervalMs;
-                    }
-
-                    try
-                    {
-                        if (!process.HasExited)
-                        {
-                            process.Kill();
-                            lblStatus.Text = "Game closed forcibly after 20s.";
-                        }
-                        else
-                        {
-                            lblStatus.Text = "Game closed early.";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
-                    }
-                }
-
-
-                string selectedVersion = comboBox3.SelectedItem.ToString();
-
-                string selectedLanguage = comboBox5.SelectedItem.ToString();
-
-                if (selectedLanguage == "🇵🇱")
-                {
-                    if (selectedVersion == "evolution")
-                    {
-                        await InstallMod(
-                        "https://github.com/rockysx27/v6config/releases/download/release/evo.zip",
-                        tempPath,
-                        gameDir,
-                        "evo.zip",
-                        10);
-                    }
-                    else
-                    {
-                        await InstallMod(
-                            "https://github.com/rockysx27/v6config/releases/download/publish/spolszczenie.zip",
-                            tempPath,
-                            gameDir,
-                            "spolszczenie.zip",
-                            10);
-                    }
-                }
-                else if (selectedLanguage == "🇪🇸")
-                {
-                    await InstallMod(
-                           "https://github.com/rockysx27/v6config/releases/download/dub-es/espanol.zip",
-                           tempPath,
-                           gameDir,
-                           "espanol.zip",
-                           10);
-                }
-                else if (selectedLanguage == "🇷🇺")
-                {
-                    await InstallMod(
-                           "https://github.com/rockysx27/v6config/releases/download/dub-rus/russian.zip",
-                           tempPath,
-                           gameDir,
-                           "russian.zip",
-                           10);
-                }
-                else
-                {
-                    await InstallMod(
-                           "https://github.com/rockysx27/v6config/releases/download/dub-br/portugese.zip",
-                           tempPath,
-                           gameDir,
-                           "portugese.zip",
-                           10);
-                }
-            }
-
             // Check if checkbox2 (cnc-ddraw mod) is ticked and install if so
             if (checkBox2.Checked)
             {
@@ -615,6 +522,107 @@ namespace WinFormsApp2
                 await File.WriteAllTextAsync(Path.Combine(gameDir, "at.json"), atJsonContent);
             }
 
+            // THEN install spolszczenie
+            if (checkBox5.Checked)
+            {
+
+                // Run the game once to initialize on the new engine
+                string atPath = Path.Combine(gameDir, "AT.exe");
+                if (File.Exists(atPath))
+                {
+                    lblStatus.Text = "Launching game to complete initialization...";
+                    var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = atPath,
+                        WorkingDirectory = gameDir,
+                        UseShellExecute = true
+                    });
+
+                    lblStatus.Text = "Waiting up to 20s for OpenGL initialization...";
+
+                    int maxWaitMs = 20000;
+                    int pollIntervalMs = 500;
+                    int waitedMs = 0;
+
+                    while (!process.HasExited && waitedMs < maxWaitMs)
+                    {
+                        await Task.Delay(pollIntervalMs);
+                        waitedMs += pollIntervalMs;
+                    }
+
+                    try
+                    {
+                        if (!process.HasExited)
+                        {
+                            process.Kill();
+                            lblStatus.Text = "Game closed forcibly after 20s.";
+                        }
+                        else
+                        {
+                            lblStatus.Text = "Game closed early.";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Couldn't close AT.exe: " + ex.Message);
+                    }
+                }
+
+
+                string selectedVersion = comboBox3.SelectedItem.ToString();
+
+                string selectedLanguage = comboBox5.SelectedItem.ToString();
+
+                if (selectedLanguage == "🇵🇱")
+                {
+                    if (selectedVersion == "evolution")
+                    {
+                        await InstallMod(
+                        "https://github.com/rockysx27/v6config/releases/download/release/evo.zip",
+                        tempPath,
+                        gameDir,
+                        "evo.zip",
+                        10);
+                    }
+                    else
+                    {
+                        await InstallMod(
+                            "https://github.com/rockysx27/v6config/releases/download/publish/spolszczenie.zip",
+                            tempPath,
+                            gameDir,
+                            "spolszczenie.zip",
+                            10);
+                    }
+                }
+                else if (selectedLanguage == "🇪🇸")
+                {
+                    await InstallMod(
+                           "https://github.com/rockysx27/v6config/releases/download/dub-es/espanol.zip",
+                           tempPath,
+                           gameDir,
+                           "espanol.zip",
+                           10);
+                }
+                else if (selectedLanguage == "🇷🇺")
+                {
+                    await InstallMod(
+                           "https://github.com/rockysx27/v6config/releases/download/dub-rus/russian.zip",
+                           tempPath,
+                           gameDir,
+                           "russian.zip",
+                           10);
+                }
+                else
+                {
+                    await InstallMod(
+                           "https://github.com/rockysx27/v6config/releases/download/dub-br/portugese.zip",
+                           tempPath,
+                           gameDir,
+                           "portugese.zip",
+                           10);
+                }
+            }
+
 
             //"🇺🇸", "🇬🇧", "🇵🇱", "🇩🇪", "🇪🇸", "🇷🇺", "🇫🇷"
             if (checkBox6.Checked)
@@ -637,7 +645,8 @@ namespace WinFormsApp2
                     gameDir,
                     "data.zip",
                     10);
-                } else if (selectedVersion == "🇬🇧")
+                }
+                else if (selectedVersion == "🇬🇧")
                 {
                     await InstallMod(
                     "https://github.com/rockysx27/v6config/releases/download/csv-uk/data.zip", // Correct raw URL
@@ -1160,11 +1169,28 @@ namespace WinFormsApp2
                     comboBox3.Enabled = false;
                 }
                 checkBox5.Checked = true;
+                checkBox5.Enabled = true;
             }
             else
             {
                 comboBox3.Enabled = false;
                 checkBox5.Checked = false;
+                checkBox5.Enabled = false;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedVersion = comboBox1.SelectedItem.ToString();
+            if (selectedVersion == "v1.8.4" || selectedVersion == "v1.9.0")
+            {
+                comboBox4.Enabled = false;
+                comboBox4.SelectedItem = "normal";
+
+            } else
+            {
+                comboBox4.Enabled = true;
+                comboBox4.SelectedItem = "normal";
             }
         }
     }

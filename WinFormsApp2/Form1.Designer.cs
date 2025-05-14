@@ -229,12 +229,13 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "v1.2H3", "v1.6.2P", "v1.7.2-preview", "v1.8.0-preview" });
+            comboBox1.Items.AddRange(new object[] { "v1.2H3", "v1.6.2P", "v1.7.2-preview", "v1.8.0-preview", "v1.8.4", "v1.9.0" });
             comboBox1.Location = new Point(389, 123);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(61, 23);
             comboBox1.TabIndex = 17;
             comboBox1.Tag = "";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // comboBox2
             // 
@@ -501,7 +502,7 @@
             label3.Name = "label3";
             label3.Size = new Size(68, 15);
             label3.TabIndex = 26;
-            label3.Text = "v1.2-1.8 HD";
+            label3.Text = "v1.2-1.9 HD";
             // 
             // label7
             // 
