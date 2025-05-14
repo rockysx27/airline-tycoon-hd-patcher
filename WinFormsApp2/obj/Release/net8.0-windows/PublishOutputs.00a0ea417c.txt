@@ -1,7 +1,0 @@
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\sound.wav
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\WinFormsApp2.exe
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\WinFormsApp2.dll
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\WinFormsApp2.runtimeconfig.json
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\WinFormsApp2.pdb
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\en\WinFormsApp2.resources.dll
-C:\Users\Forest\source\repos\WinFormsApp2\WinFormsApp2\bin\Release\net8.0-windows\publish\WinFormsApp2.deps.json
