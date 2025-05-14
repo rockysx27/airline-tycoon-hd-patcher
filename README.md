@@ -1,5 +1,5 @@
-# at.hd-pather  
-**Airline Tycoon Deluxe HD Patcher (v1.2–1.8)**
+# airline-tycoon-hd-patcher
+**Airline Tycoon Deluxe HD Patcher (v1.8)**
 
 All credits for dubbing:
 https://lili.lgbt/en/
