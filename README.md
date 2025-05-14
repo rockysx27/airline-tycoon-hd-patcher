@@ -1,11 +1,10 @@
 # airline-tycoon-hd-patcher
-**Airline Tycoon Deluxe HD Patcher (v1.8)**
+**Airline Tycoon Deluxe HD Patcher (v1.2-1.9)**
 
 All credits for dubbing:
 https://lili.lgbt/en/
 
 DUBBING FOR: RUSSIAN, PORTUGUESE, SPANISH, POLISH
-
 
 V6 DATA FOR: ENGLISH, GERMAN, POLISH, RUSSIAN, PORTUGUESE, SPANISH, FRENCH
 
@@ -27,16 +26,25 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 ### 🇬🇧 How to Install
 1. Download the `.exe` file.
 2. Run it as administrator.
-3. Select your Language (If you want to play in French and you own Steam copy you have to buy the GOG).
+3. Select your Language
 4. Select the folder that contains `at.exe`.
 5. The patcher will install the new engine and launch the game.  
    *Skip the intro to reach the main menu.*
 6. The game will close automatically after ~20 seconds **or you can exit manually**.  
 
+### 🇩🇪 Wie installiert man es?
+1. Lade die `.exe`-Datei herunter.
+2. Führe sie als Administrator aus.
+3. Gib den Ordner an, der `at.exe` enthält.
+4. Das Programm wird die neue Engine installieren und das Spiel starten.  
+   *Überspringe das Intro, um zum Hauptmenü zu gelangen.*
+5. Das Spiel schließt sich automatisch nach etwa 20 Sekunden **oder du kannst es manuell beenden**.  
+   Der Patcher wird dann die Installation der Lokalisierung abschließen.
+
 ### 🇫🇷 Comment installer ?
 1. Téléchargez le fichier `.exe`.
 2. Exécutez-le en tant qu'administrateur.
-3. Sélectionnez votre langue (Si vous souhaitez jouer en français et que vous possédez la version Steam, vous devez acheter la version GOG).
+3. Sélectionnez votre langue
 4. Sélectionnez le dossier contenant `at.exe`.
 5. Le patch installera le nouveau moteur et lancera le jeu.  
    *Passez l'intro pour accéder au menu principal.*
@@ -46,7 +54,7 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 ### 🇵🇹 Como instalar
 1. Baixe o arquivo `.exe`.
 2. Execute como administrador.
-3. Selecione o idioma (Se quiser jogar em francês e tiver a versão da Steam, é necessário comprar a versão GOG).
+3. Selecione o idioma
 4. Selecione a pasta que contém `at.exe`.
 5. O patcher instalará o novo motor e iniciará o jogo.  
    *Pule a introdução para ir ao menu principal.*
@@ -56,7 +64,7 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 ### 🇪🇸 ¿Cómo instalar?
 1. Descarga el archivo `.exe`.
 2. Ejecuta como administrador.
-3. Selecciona el idioma (Si deseas jugar en francés y tienes la versión de Steam, necesitas comprar la versión de GOG).
+3. Selecciona el idioma
 4. Selecciona la carpeta que contiene `at.exe`.
 5. El instalador aplicará el nuevo motor y lanzará el juego.  
    *Salta la introducción para acceder al menú principal.*
@@ -66,7 +74,7 @@ A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and in
 ### 🇷🇺 Как установить?
 1. Скачайте файл `.exe`.
 2. Запустите его от имени администратора.
-3. Выберите язык (Если хотите играть на французском и у вас версия Steam — необходимо купить GOG-версию).
+3. Выберите язык
 4. Укажите папку, содержащую `at.exe`.
 5. Установщик установит новый движок и запустит игру.  
    *Пропустите вступление, чтобы перейти в главное меню.*
