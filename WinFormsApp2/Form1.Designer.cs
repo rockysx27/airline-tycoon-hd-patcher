@@ -287,10 +287,10 @@
             linkLabel3.AutoSize = true;
             linkLabel3.Location = new Point(307, 126);
             linkLabel3.Name = "linkLabel3";
-            linkLabel3.Size = new Size(81, 15);
+            linkLabel3.Size = new Size(73, 15);
             linkLabel3.TabIndex = 24;
             linkLabel3.TabStop = true;
-            linkLabel3.Text = "WizzardMaker";
+            linkLabel3.Text = "Mertenpopp";
             linkLabel3.LinkClicked += linkLabel3_LinkClicked;
             // 
             // linkLabel4
@@ -306,7 +306,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.ImageLocation = "https://avatars.githubusercontent.com/u/7768485?v=4";
+            pictureBox2.ImageLocation = "https://avatars.githubusercontent.com/u/28233977?v=4";
             pictureBox2.Location = new Point(286, 121);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(24, 24);
@@ -574,7 +574,7 @@
             MaximumSize = new Size(548, 369);
             MinimumSize = new Size(548, 369);
             Name = "Form1";
-            Text = "Airlines Tycoon Evolution HD Patcher";
+            Text = "Airline Tycoon Deluxe HD Patcher";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

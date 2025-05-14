@@ -908,11 +908,73 @@ namespace WinFormsApp2
     <h2>2. Third-Party Content and Credits</h2>
     <ul>
         <li>This software may utilize or install files from the following third-party projects:</li>
+<ul>
+  <li><strong>cnc-ddraw</strong> by FunkyFr3sh – <a href=""https://github.com/FunkyFr3sh/cnc-ddraw/releases"" target=""_blank"">GitHub Repository</a></li>
+  <li><strong>Pełne spolszczenie do Airline Tycoon Deluxe</strong> by Lili – <a href=""https://steamcommunity.com/sharedfiles/filedetails/?id=1325551452"" target=""_blank"">Steam Guide</a></li>
+  <li><strong>Airline Tycoon Patch 1.2-1.8</strong> by WizzardMaker – <a href=""https://github.com/WizzardMaker"" target=""_blank"">GitHub Repository</a></li>
+ <li><strong>Airline Tycoon Patch 1.8.4-1.9.0</strong> by WizzardMaker – <a href=""https://github.com/mertenpopp"" target=""_blank"">GitHub Repository</a></li>
+<li><strong>Credits and Contributors</strong></li>
+  <li>WizzardMaker - Main contributor and maintainer</li>
+  <li>CrossVR - Original contributor</li>
+  <li>mertenpopp - Contributor</li>
+  <li>wackfx - Contributor</li>
+  <li>CrazyOrange - Contributor</li>
+  <li>Heftie - Contributor</li>
+  <li>Fisico9798 - Planes</li>
+  <li>Hephaestus6059 - Planes</li>
+  <li>Flat_Eric1983 - Cities, Routes and Builds</li>
+</ul>
+
+<ul>
+  <li><strong>Obsada (Polski Dubbing)</strong></li>
+  <li><strong>Krzysztof Kowalewski</strong> – Dyrektor Godziński</li>
+  <li><strong>Artur Barciś</strong> – Andrzej Balicki</li>
+  <li><strong>Pijak w kawiarni</strong></li>
+  <li><strong>Jan Piechociński</strong>
+    <ul>
+      <li>Pracownik Inter Adu</li>
+      <li>Pracownik sklepu NASA</li>
+      <li>Sabotażysta</li>
+      <li>Mechanik</li>
+      <li>Sprzedawca samolotów Maczek i Synowie</li>
+    </ul>
+  </li>
+  <li><strong>W pozostałych rolach</strong>
+    <ul>
+      <li><strong>Elżbieta Bieda</strong>
         <ul>
-            <li><strong>cnc-ddraw</strong> by FunkyFr3sh – <a href=""https://github.com/FunkyFr3sh/cnc-ddraw/releases"" target=""_blank"">GitHub Repository</a></li>
-            <li><strong>Pełne spolszczenie do Airline Tycoon Deluxe</strong> by Lili – <a href=""https://steamcommunity.com/sharedfiles/filedetails/?id=1325551452"" target=""_blank"">Steam Guide</a></li>
-            <li><strong>Airline Tycoon Patch</strong> by WizzardMaker – <a href=""https://github.com/WizzardMaker"" target=""_blank"">GitHub Repository</a></li>
+          <li>Joasia Skalska</li>
+          <li>Ekspedientka w sklepie bezcłowym</li>
+          <li>Urzędniczka w banku</li>
+          <li>Urzędniczka oddziału zagranicznego</li>
         </ul>
+      </li>
+      <li><strong>Michał Burbo</strong>
+        <ul>
+          <li>Stańczyk</li>
+          <li>Jan Nowak</li>
+          <li>Darek</li>
+        </ul>
+      </li>
+      <li><strong>Henryka Korzycka</strong> – Dorota Lotna</li>
+      <li>Komunikaty z megafonu</li>
+      <li><strong>Jan Plewako</strong>
+        <ul>
+          <li>Marian Migalski</li>
+          <li>Pracownik ArabAir</li>
+          <li>Kioskarz</li>
+        </ul>
+      </li>
+      <li><strong>Robert Płuszka</strong>
+        <ul>
+          <li>Igor Tupolewski</li>
+          <li>Pracownik muzeum lotniczego</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+        <li><strong>Credits for Spanish, Brazilian, and Russian dubbing go to their respective voice actors and directors.</strong></li>
         <li>All credit for these tools and patches goes to their respective authors.</li>
         <li>You must comply with the specific licenses and terms provided by each third-party project before use.</li>
     </ul>
@@ -1024,7 +1086,15 @@ namespace WinFormsApp2
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var url = "https://wizzardmaker.github.io/portfolio/";
+            var url = "";
+            if (linkLabel3.Text == "WizzardMaker")
+            {
+                url = "https://wizzardmaker.github.io/portfolio/";
+            } else
+            {
+                url = "https://github.com/mertenpopp";
+            }
+                
 
             try
             {
@@ -1187,10 +1257,15 @@ namespace WinFormsApp2
                 comboBox4.Enabled = false;
                 comboBox4.SelectedItem = "normal";
 
+                linkLabel3.Text = "Mertenpopp";
+                pictureBox2.ImageLocation = "https://avatars.githubusercontent.com/u/28233977?v=4";
             } else
             {
                 comboBox4.Enabled = true;
                 comboBox4.SelectedItem = "normal";
+
+                linkLabel3.Text = "WizzardMaker";
+                pictureBox2.ImageLocation = "https://avatars.githubusercontent.com/u/7768485?v=4";
             }
         }
     }
