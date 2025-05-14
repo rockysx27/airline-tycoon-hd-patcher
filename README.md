@@ -87,3 +87,15 @@ Works with Airline Tycoon Deluxe
 ## 💬 Notes
 - Make sure no antivirus interferes with the patcher.
 - Always back up your game files before patching.
+
+## 💬 Manual
+
+If you don't wish to download .exe or build your own exe you can install manually via drag and drop you can find configs and mods you need here:
+https://github.com/rockysx27/v6config/releases
+
+[https://github.com/mertenpopp](https://github.com/mertenpopp/AirlineTycoon) for 1.8.4-1.9.0
+[https://github.com/WizzardMaker](https://github.com/WizzardMaker/AirlineTycoon) for 1.2-1.8
+
+https://github.com/FunkyFr3sh/cnc-ddraw
+
+
