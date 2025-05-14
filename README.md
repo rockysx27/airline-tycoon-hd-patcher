@@ -4,6 +4,9 @@
 All credits for dubbing:
 https://lili.lgbt/en/
 
+DUBBING FOR: RUSSIAN, PORTUGUESE, SPANISH, POLISH
+V6 DATA FOR: ENGLISH, GERMAN, POLISH, RUSSIAN, PORTUGUESE, SPANISH, FRENCH
+
 Dodaje widescreen/usuwa czarne brzegi, patchuje .exe z win10/11 kompatibilnością, dodaje OpenGL engine + shadery i bug fixy.
 
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
