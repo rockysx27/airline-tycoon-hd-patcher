@@ -10,7 +10,7 @@ V6 DATA FOR: ENGLISH, GERMAN, POLISH, RUSSIAN, PORTUGUESE, SPANISH, FRENCH
 
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
 
-![image](https://github.com/user-attachments/assets/4f1a7eb7-7a2f-4b96-8f38-762b6170ea17)
+![image](https://github.com/user-attachments/assets/038a4a1c-993f-411b-bb08-ca3390542596)
 
 ## 📦 Installation Instructions
 
