@@ -1,7 +1,7 @@
 # airline-tycoon-hd-patcher
 **Airline Tycoon Deluxe HD Patcher (v1.2-2.0)**
 
-All credits for dubbing:
+All credits for polish dubbing:
 https://lili.lgbt/en/
 
 DUBBING FOR: RUSSIAN, PORTUGUESE, SPANISH, POLISH
