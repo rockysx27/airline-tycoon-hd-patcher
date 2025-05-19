@@ -8,8 +8,12 @@ DUBBING FOR: RUSSIAN, PORTUGUESE, SPANISH, POLISH
 
 V6 DATA FOR: ENGLISH, GERMAN, POLISH, RUSSIAN, PORTUGUESE, SPANISH, FRENCH
 
+---------------------DISCLAIMER--------------------
+
 V6 DATA will break the game if patch is below v2.0.0.
 v.2.0.0 only works on Polish version currently.
+
+---------------------DISCLAIMER--------------------
 
 A patcher for *Airline Tycoon Deluxe* that upgrades the game engine to HD and installs additional localization support.
 
