@@ -11,7 +11,7 @@ V6 DATA FOR: ENGLISH, GERMAN, POLISH, RUSSIAN, PORTUGUESE, SPANISH, FRENCH
 ---------------------DISCLAIMER--------------------
 
 V6 DATA will break the game if patch is below v2.0.0.
-v.2.0.0 only works on Polish version currently.
+v.2.0.0 only works on Polish version currently. This is because I made some duplication error I need to fix on the other languages. The dubbings for russian portuguese and spanish might be incomplete on version 1.9.0 due to the way it should be done will be fixed in 2.0.0.
 
 ---------------------DISCLAIMER--------------------
 
